@@ -19,11 +19,11 @@ a harmoniser and not a vocoder: it corrects one voice at a time.
 - **13 scales in every key:** Chromatic, Major, Natural, Harmonic and Melodic Minor, Dorian, Phrygian, Lydian, Mixolydian, Locrian, Major and Minor Pentatonic and Blues.
 - **One puck for the feel:** SPEED from 0 to 200 ms along the pad, HUMANIZE from 0 to 100 % (up to 50 cents) up it. 0 ms snaps at once.
 - **The note follows the pitch:** a wide vibrato swings to its neighbour and back, for the hard-tuned sound.
-- **One small latency:** 3.75 to 10.75 ms by voice range (6.81 ms at Normal), reported to the host so the track stays in time.
+- **1 ms of latency** in every voice range, reported to the host so the track stays in time. While a voice is being tuned the sound runs a little further behind, 4.5 ms on average.
 - **The voice range beside the scale:** Low, Normal or High, each with its range in Hz.
 - **A display that shows what it does:** the last four seconds, the voice as sung and as corrected, with STRENGTH, DETUNE and A4 set right in it.
 - **A jellyfish that listens:** its bell pulses with your level and its tentacles stir the further you are off the note, calm within 5 cents.
-- **Light:** 0.26 % of a CPU core at the defaults.
+- **Light:** 0.13 % of a CPU core at the defaults.
 - **Zoom** from 100 to 200 %.
 - **No network access and no telemetry.**
 
@@ -33,10 +33,10 @@ Download the latest version from the [Releases page](https://github.com/jelly-co
 or with these commands:
 
 ```bash
-curl -LO https://github.com/jelly-comet/JellyPitchBtw-release/releases/download/v1.1.0/JellyPitchBtw-1.1.0-linux-x86_64.tar.gz
-curl -LO https://github.com/jelly-comet/JellyPitchBtw-release/releases/download/v1.1.0/JellyPitchBtw-1.1.0-linux-x86_64.tar.gz.sha256
-sha256sum -c JellyPitchBtw-1.1.0-linux-x86_64.tar.gz.sha256 && tar xzf JellyPitchBtw-1.1.0-linux-x86_64.tar.gz
-cd JellyPitchBtw-1.1.0-linux-x86_64
+curl -LO https://github.com/jelly-comet/JellyPitchBtw-release/releases/download/v1.2.0/JellyPitchBtw-1.2.0-linux-x86_64.tar.gz
+curl -LO https://github.com/jelly-comet/JellyPitchBtw-release/releases/download/v1.2.0/JellyPitchBtw-1.2.0-linux-x86_64.tar.gz.sha256
+sha256sum -c JellyPitchBtw-1.2.0-linux-x86_64.tar.gz.sha256 && tar xzf JellyPitchBtw-1.2.0-linux-x86_64.tar.gz
+cd JellyPitchBtw-1.2.0-linux-x86_64
 ```
 
 Install for your user:
@@ -64,7 +64,7 @@ rm -f ~/.clap/JellyPitchBtw.clap
 
 ## Requirements
 
-- Linux x86-64 with glibc 2.31 or newer (Ubuntu 20.04, Debian 11, Fedora 32 and newer)
+- Linux x86-64 on a CPU with AVX2 (Intel Core from 2013, AMD from 2015), with glibc 2.31 or newer (Ubuntu 20.04, Debian 11, Fedora 32 and newer)
 - A CLAP host
 - X11 or XWayland, and a Vulkan driver for the editor
 

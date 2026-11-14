@@ -4,7 +4,7 @@
 pulled in and how far off its note a voice may be and be left alone, and a display shows the voice
 as sung and as corrected.
 
-Version 1.1.0. To install it, see the [README](README.md).
+Version 1.2.0. To install it, see the [README](README.md).
 
 ## Contents
 
@@ -35,7 +35,7 @@ From the top left of the window.
 | --- | --- | --- | --- |
 | **Power switch** (top right) | On / Off | On | Off, the voice passes through uncorrected, as late as the latency the plugin reports, so the track stays in time. |
 | **Key and scale** | C to B; 13 scales | C, Chromatic | The notes a voice is pulled to. Chromatic is every note: plain tuning. |
-| **VOICE** (beside the scale) | Low, Normal, High | Normal | Where the voice is looked for: Low 50 to 400 Hz, Normal 80 to 800 Hz, High 150 to 1500 Hz. It sets the latency too. |
+| **VOICE** (beside the scale) | Low, Normal, High | Normal | Where the voice is looked for: Low 50 to 400 Hz, Normal 80 to 800 Hz, High 150 to 1500 Hz. |
 | **The pad: SPEED** (left to right) | 0 to 200 ms | 25 ms | How fast a new note is pulled in. 0 ms snaps at once; 200 ms glides. |
 | **The pad: HUMANIZE** (bottom to top) | 0 to 100 % | 0 % | How far off its note a voice may be and be left alone, up to 50 cents at 100 %. 0 % corrects every note. |
 | **STRENGTH** (display) | 0 to 100 % | 100 % | How much of the correction is applied. 0 % leaves the pitch as sung. |
@@ -73,10 +73,8 @@ swings to the next note and back, the sound of a hard-tuned vocal. Settings to s
 
 VOICE, beside the key and scale, says where to look for the voice. Click it for its list: Low,
 Normal and High, each with its range in Hz. Normal fits most singers; take Low for a bass voice
-that the plugin misses, and High for a high soprano or a whistle. A higher range has less latency:
-10.75 ms at Low, 6.81 ms at Normal, 3.75 ms at High (at 48 kHz). The host is told and plays the
-track that much earlier, so it stays in time with the others. Because it changes the latency,
-VOICE isn't automatable: set it and leave it.
+that the plugin misses, and High for a high soprano or a whistle. The latency is the same in all
+three. VOICE isn't automatable: set it and leave it.
 
 ### The display
 
@@ -102,14 +100,14 @@ from 50 cents. Switched off, it rests.
 
 ## Good to know
 
-- **Latency:** 3.75 to 10.75 ms by VOICE, 6.81 ms at Normal. The host is told, and lines the
-  track up.
-- **Automation:** every parameter but VOICE can be automated; VOICE changes the latency, so it
-  isn't offered.
+- **Latency:** 1 ms in every VOICE. The host is told, and lines the track up. While a voice is
+  being tuned the sound runs a little further behind, 4.5 ms on average.
+- **Automation:** every parameter but VOICE can be automated.
+- **From 1.1:** every setting is kept. The latency was 3.75 to 10.75 ms by VOICE.
 - **From 1.0:** a project saved with 1.0 opens with its key, scale, SPEED, STRENGTH, DETUNE, A4
   and VOICE. REALTIME, VIBRATO, FORMANT and HOLD are gone, and HUMANIZE starts at 0 %.
 - **Saved with the project:** every setting and the zoom.
-- **CPU:** 0.26 % of a core at the defaults.
+- **CPU:** 0.13 % of a core at the defaults. It needs a CPU with AVX2 (Intel Core from 2013, AMD from 2015).
 - **One voice:** chords, a choir on one track or a mix go wrong. Correct each voice on its own
   track.
 - **Zoom:** the project remembers it, and a new window opens at the zoom you last chose in any
@@ -125,5 +123,7 @@ from 50 cents. Switched off, it rests.
   the nearest note whatever the key.
 - **The track sounds late against the others:** the host has to compensate the plugin's latency;
   check that its latency compensation is on.
+- **The plugin doesn't load:** it needs a CPU with AVX2 (Intel Core from 2013, AMD from 2015) and
+  can't run on an older one; `grep -c avx2 /proc/cpuinfo` prints 0 there. 1.1.0 runs without it.
 - **The window stays black:** the editor needs a Vulkan driver (`vulkaninfo` should list your
   GPU).
