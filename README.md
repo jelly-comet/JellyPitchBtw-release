@@ -81,10 +81,38 @@ rm -f ~/.clap/JellyPitchBtw.clap
 
 Releases contain the CLAP plugin only.
 
+## FAQ
+
+### Is it free?
+
+Yes. The download is free and MIT-licensed.
+
+### Is there a VST3 or LV2 version?
+
+No. Releases contain the CLAP plugin only.
+
+### Does it run on ARM, like a Raspberry Pi or Apple Silicon?
+
+No. It needs Linux on x86-64, on a CPU with AVX2.
+
+### Which hosts does it work in?
+
+Any CLAP host. It was tried in Bitwig Studio and REAPER.
+
+### Does it work on Wayland?
+
+Through XWayland. The editor also needs a Vulkan driver.
+
+### Does it work on chords or several voices at once?
+
+No. It corrects one voice at a time: a lead vocal, a backing vocal, or an instrument that plays one
+note at a time. It is not a harmoniser and not a vocoder.
+
 ## License
 
 MIT, see [LICENSE](LICENSE). The licenses of the third-party code in the binaries are in
 `THIRD-PARTY-LICENSES.txt` in each release archive.
 
-CLAP is an open standard by the free-audio project. JellyPitchBtw is an independent project, not
-affiliated with or endorsed by the makers of any other pitch correction.
+VST is a registered trademark of Steinberg Media Technologies GmbH. CLAP is an open standard by the
+free-audio project. JellyPitchBtw is an independent project, not affiliated with or endorsed by the
+makers of any other pitch correction.

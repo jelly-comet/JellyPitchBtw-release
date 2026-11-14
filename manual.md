@@ -4,7 +4,7 @@
 pulled in and how far off its note a voice may be and be left alone, and a display shows the voice
 as sung and as corrected.
 
-Version 1.3.0. To install it, see the [README](README.md).
+Version 1.3.0. To install it, see the [install steps](README.md#install).
 
 ## Contents
 
