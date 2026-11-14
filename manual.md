@@ -4,7 +4,7 @@
 pulled in and how far off its note a voice may be and be left alone, and a display shows the voice
 as sung and as corrected.
 
-Version 1.2.0. To install it, see the [README](README.md).
+Version 1.3.0. To install it, see the [README](README.md).
 
 ## Contents
 
@@ -100,9 +100,12 @@ from 50 cents. Switched off, it rests.
 
 ## Good to know
 
-- **Latency:** 1 ms in every VOICE. The host is told, and lines the track up. While a voice is
-  being tuned the sound runs a little further behind, 4.5 ms on average.
+- **Latency:** 0.25 ms in every VOICE. The host is told, and lines the track up. While a voice is
+  being tuned the sound runs a little further behind, 3.8 ms on average: to move a note the plugin
+  repeats or drops one cycle of the voice now and then, so it is about 2 to 3 ms for a high voice
+  and 5 to 6 ms for a low one.
 - **Automation:** every parameter but VOICE can be automated.
+- **From 1.2:** every setting is kept. The latency was 1 ms.
 - **From 1.1:** every setting is kept. The latency was 3.75 to 10.75 ms by VOICE.
 - **From 1.0:** a project saved with 1.0 opens with its key, scale, SPEED, STRENGTH, DETUNE, A4
   and VOICE. REALTIME, VIBRATO, FORMANT and HOLD are gone, and HUMANIZE starts at 0 %.
