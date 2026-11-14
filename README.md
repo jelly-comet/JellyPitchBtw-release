@@ -6,13 +6,24 @@ as sung and as corrected. CLAP for Linux.
 
 ![JellyPitchBtw correcting a sung phrase: the jellyfish pad at the left, the voice as sung and as corrected in the display at the right](images/screenshot.png)
 
+**[JellyPitchBtw on jelly-comet.github.io](https://jelly-comet.github.io/plugins/jellypitchbtw/)**: more screenshots, the manual to read or as a PDF, and every release.
+
 Pick the key and scale, and every note is drawn to the nearest one in it. Drag the puck left for a
 hard, robotic snap and right for a slow, natural glide; up humanizes, leaving notes that are
 already close to their note alone, down corrects every one. The note follows the pitch as it is
-sung, so a wide vibrato swings to the next note and back: the classic hard-tuned sound. It is not
-a harmoniser and not a vocoder: it corrects one voice at a time.
+sung, so a wide vibrato swings to the next note and back: the classic hard-tuned sound. It works
+in real time: the host compensates the 0.25 ms of latency it reports, and while a voice is being
+tuned the sound runs further behind, 3.8 ms on average. It is not a harmoniser and not a vocoder:
+it corrects one voice at a time.
 
 **[Read the manual](manual.md)** for every control and how to use it.
+
+## What it's for
+
+- **A hard-tuned lead vocal:** SPEED at 0 ms snaps every note to the key and scale at once, the robotic vocal tuning effect.
+- **Gentle pitch correction:** a slower SPEED and some HUMANIZE pull in the notes that are clearly off and leave the rest of the take as it was sung.
+- **Singing through it:** it tunes in real time, so it can stay on the track while you record and listen.
+- **Backing vocals and solo lines:** any single voice, or an instrument that plays one note at a time.
 
 ## Features
 
@@ -65,7 +76,7 @@ rm -f ~/.clap/JellyPitchBtw.clap
 ## Requirements
 
 - Linux x86-64 on a CPU with AVX2 (Intel Core from 2013, AMD from 2015), with glibc 2.31 or newer (Ubuntu 20.04, Debian 11, Fedora 32 and newer)
-- A CLAP host
+- A CLAP host. Tried in Bitwig Studio and REAPER.
 - X11 or XWayland, and a Vulkan driver for the editor
 
 Releases contain the CLAP plugin only.
